@@ -21,14 +21,14 @@ var work = {
 	"description" : "Build flows in proprietary builder utilizing HTML/CSS/JS/jQuery used by call center agents to provide consistant and efficient trouble shooting of customer issues."
 	},
 	{
-		"title" : "NCCO Manager",
+	"title" : "NCCO Manager",
 	"employer" : "AT&T",
 	"dates" : "July 2009 - July 2014",
 	"location" : "Atlanta",
 	"description" : "Provide client side outage support for 80+ call centers (Internal and External) around the world."
 	},
 	{
-		"title" : "WFM Manager",
+	"title" : "WFM Manager",
 	"employer" : "AT&T",
 	"dates" : "February 2007 - July 2009",
 	"location" : "Atlanta",
@@ -99,4 +99,19 @@ if (bio.skills.length > 0) {
 	$("#skills").append(formattedSkill);
 	var formattedSkill = HTMLskills.replace("%data%", bio.skills[3]);
 	$("#skills").append(formattedSkill);
+}
+
+for(job in work.jobs) {
+	$("#workExperience").append(HTMLworkStart);
+	
+	var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
+	var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
+	var formattedEmployerTitle = formattedEmployer + formattedTitle;
+	$(".work-entry:last").append(formattedEmployerTitle);
+	var formattedDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
+	var formattedLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
+	var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
+	$(".work-entry:last").append(formattedDates);
+	$(".work-entry:last").append(formattedLocation);
+	$(".work-entry:last").append(formattedDescription);
 }
