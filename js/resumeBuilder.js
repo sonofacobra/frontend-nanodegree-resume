@@ -186,6 +186,9 @@ projects.display = function() {
 }	
 projects.display();
 
+//Add google map
+$("#mapDiv").append(googleMap);
+
 // International name button
 // function inName(name) {
 //	name = name.trim().split(" ");
