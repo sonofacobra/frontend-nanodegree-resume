@@ -8,6 +8,7 @@ var bio = {
 		"github" : "sonofacobra",
 		"location" : "Fort Worth"
 	},
+	"bioPic" : "images/fry.jpg",
 	"welcomeMessage" : "Do or do not, there is no try.",
 	"skills" : ["These", "are", "my", "skills"]
 }
@@ -91,6 +92,26 @@ var projects = {
 	}
 	]
 }
+//Place bio data (except for skills) in place of html placeholders
+var formattedName = HTMLheaderName.replace("%data%", bio.name);
+var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
+$("#header").prepend(formattedRole);
+$("#header").prepend(formattedName);
+
+var formattedBioPic = HTMLbioPic.replace("%data%", bio.bioPic);
+$("#header").append(formattedBioPic);
+
+var formattedContactsWelcomeMSG = HTMLWelcomeMsg.replace("%data%", bio.welcomeMessage);
+$("#header").append(formattedContactsWelcomeMSG);
+
+var formattedContactsMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
+var formattedContactsEmail = HTMLemail.replace("%data%", bio.contacts.email);
+var formattedContactsGithub = HTMLgithub.replace("%data%", bio.contacts.github);
+var formattedContactsLocation = HTMLlocation.replace("%data%", bio.contacts.location);
+$("#topContacts").append(formattedContactsMobile);
+$("#topContacts").append(formattedContactsEmail);
+$("#topContacts").append(formattedContactsGithub);
+$("#topContacts").append(formattedContactsLocation);
 
 //Place skills from bio object in place of html placeholders
 if (bio.skills.length > 0) {
