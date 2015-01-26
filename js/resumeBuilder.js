@@ -1,3 +1,4 @@
+//create bio object
 var bio = {
 	"name" : "Ryan Overfelt",
 	"role" : "Web Developer",
@@ -11,6 +12,7 @@ var bio = {
 	"skills" : ["These", "are", "my", "skills"]
 }
 
+//create work object
 var work = {
 	"jobs" : [
 	{
@@ -37,6 +39,7 @@ var work = {
 	]
 }
 
+//create education object
 var education = {
 	"schools" : [
 	{
@@ -71,6 +74,7 @@ var education = {
 	]
 }
 
+//create projects object
 var projects = {
 "projects" : [
 	{
@@ -88,6 +92,7 @@ var projects = {
 	]
 }
 
+//Place skills from bio object in place of html placeholders
 if (bio.skills.length > 0) {
 	$("#header").append(HTMLskillsStart);
 	
@@ -101,6 +106,7 @@ if (bio.skills.length > 0) {
 	$("#skills").append(formattedSkill);
 }
 
+//Place data from work object in place of html placeholders
 function displayWork() {
 	for(job in work.jobs) {
 		$("#workExperience").append(HTMLworkStart);
@@ -119,6 +125,7 @@ function displayWork() {
 }
 displayWork();
 
+//Enables logging of mouse click locations on page
 $(document).click(function(loc) {
 	var x = loc.pageX;
 	var y = loc.pageY;
@@ -126,7 +133,7 @@ $(document).click(function(loc) {
 	logClicks(x,y);
 });
 
-
+//do not remember
 function locationizer(work_obj) {
     var locationArray = [];
     for (job in work_obj.jobs) {
@@ -135,6 +142,28 @@ function locationizer(work_obj) {
     }
     return locationArray;
 }
+
+//Place data from projects object in place of html placeholders
+projects.display = function() {
+	for (project in projects.projects) {
+		$("#projects").append(HTMLprojectStart);
+
+		var formattedTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
+		var formattedDates = HTMLprojectDates.replace("%data%", projects.projects[project].dates);
+		var formattedDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
+		$(".project-entry:last").append(formattedTitle);
+		$(".project-entry:last").append(formattedDates);
+		$(".project-entry:last").append(formattedDescription);
+
+		if (projects.projects[project].images.length > 0) {
+			for (image in projects.projects[project].images) {
+				var formattedImage = HTMLProjectImage.replace("%data%", projects.projects[project].images[image]);
+				$(".project-entry:last").append(formattedImage);
+			}
+		}
+	}
+}	
+projects.display();
 
 // International name button
 // function inName(name) {
