@@ -81,14 +81,14 @@ var projects = {
 	{
 		"title" : "Mockup to Website",
 		"dates" : "January 2015",
-		"description" : "Using a PDF mockup of a website, we had to create a website from scratch that matched the mockup as closely as possible using HTML and CSS.",
-		"images" : "images/P1.png"
+		"description" : "Using a PDF mockup o a website, we had to create a website from scratch that matched the mockup as closely as possible using HTML and CSS.",
+		"images" : ["images/P1.png"]
 	},
 	{
 		"title" : "Interactive Resume",
 		"dates" : "February 2015",
 		"description" : "Utilizing JavaScript (JSON Objects, Functions, Arrays, and Loops) along with jQuery to create our resume on a prebuilt template.",
-		"images" : "need to add an image"
+		"images" : ["images/P1.png"]
 	}
 	]
 }
@@ -146,6 +146,31 @@ function displayWork() {
 }
 displayWork();
 
+//Place data from projects object in place of html placeholders
+projects.display = function() {
+	for (project in projects.projects) {
+		$("#projects").append(HTMLprojectStart);
+
+		var formattedTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
+		var formattedDates = HTMLprojectDates.replace("%data%", projects.projects[project].dates);
+		var formattedDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
+		$(".project-entry:last").append(formattedTitle);
+		$(".project-entry:last").append(formattedDates);
+		$(".project-entry:last").append(formattedDescription);
+
+		if (projects.projects[project].images.length > 0) {
+			for (image in projects.projects[project].images) {
+				var formattedImage = HTMLprojectImage.replace("%data%", projects.projects[project].images[image]);
+				$(".project-entry:last").append(formattedImage);
+			}
+		}
+	}
+}	
+projects.display();
+
+//Add google map
+$("#mapDiv").append(googleMap);
+
 //Enables logging of mouse click locations on page
 $(document).click(function(loc) {
 	var x = loc.pageX;
@@ -163,31 +188,6 @@ function locationizer(work_obj) {
     }
     return locationArray;
 }
-
-//Place data from projects object in place of html placeholders
-projects.display = function() {
-	for (project in projects.projects) {
-		$("#projects").append(HTMLprojectStart);
-
-		var formattedTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
-		var formattedDates = HTMLprojectDates.replace("%data%", projects.projects[project].dates);
-		var formattedDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
-		$(".project-entry:last").append(formattedTitle);
-		$(".project-entry:last").append(formattedDates);
-		$(".project-entry:last").append(formattedDescription);
-
-		if (projects.projects[project].images.length > 0) {
-			for (image in projects.projects[project].images) {
-				var formattedImage = HTMLProjectImage.replace("%data%", projects.projects[project].images[image]);
-				$(".project-entry:last").append(formattedImage);
-			}
-		}
-	}
-}	
-projects.display();
-
-//Add google map
-$("#mapDiv").append(googleMap);
 
 // International name button
 // function inName(name) {
