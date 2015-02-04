@@ -10,7 +10,7 @@ var bio = {
 	},
 	"bioPic" : "images/fry.jpg",
 	"welcomeMessage" : "Do or do not, there is no try.",
-	"skills" : ["These", "are", "my", "skills"]
+	"skills" : ["HTML", "CSS", "JavaScript", "jQuery"]
 }
 
 //create work object
@@ -61,16 +61,16 @@ var education = {
 	],
 	"onlineCourses" : [
 	{
-		"title" : "",
-		"school" : "",
-		"dates" : "",
-		"url" : ""
+		"title" : "Intro to HTML and CSS",
+		"school" : "Udacity",
+		"dates" : "2014",
+		"url" : "https://www.udacity.com/course/ud304"
 	},
 	{
-		"title" : "",
-		"school" : "",
-		"dates" : "",
-		"url" : ""
+		"title" : "How to Use Git and GitHub",
+		"school" : "Udacity",
+		"dates" : "2015",
+		"url" : "https://www.udacity.com/course/ud775-nd"
 	}
 	]
 }
@@ -79,16 +79,16 @@ var education = {
 var projects = {
 "projects" : [
 	{
-		"title" : "",
-		"dates" : "",
-		"description" : "",
-		"images" : ""
+		"title" : "Mockup to Website",
+		"dates" : "January 2015",
+		"description" : "Using a PDF mockup of a website, we had to create a website from scratch that matched the mockup as closely as possible using HTML and CSS.",
+		"images" : "images/P1.png"
 	},
 	{
-		"title" : "",
-		"dates" : "",
-		"description" : "",
-		"images" : ""
+		"title" : "Interactive Resume",
+		"dates" : "February 2015",
+		"description" : "Utilizing JavaScript (JSON Objects, Functions, Arrays, and Loops) along with jQuery to create our resume on a prebuilt template.",
+		"images" : "need to add an image"
 	}
 	]
 }
