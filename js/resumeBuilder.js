@@ -10,7 +10,43 @@ var bio = {
 	},
 	"welcomeMessage" : "Do or do not, there is no try.",
 	"skills" : ["HTML", "CSS", "JavaScript", "jQuery"],
-	"bioPic" : "images/fry.jpg"
+	"bioPic" : "images/fry.jpg",
+//Place bio data (except for skills) in place of html placeholders
+	display : function() {
+		var formattedName = HTMLheaderName.replace("%data%", bio.name);
+		var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
+		$("#header").prepend(formattedRole);
+		$("#header").prepend(formattedName);
+
+		var formattedBioPic = HTMLbioPic.replace("%data%", bio.bioPic);
+		$("#header").append(formattedBioPic);
+
+		var formattedContactsWelcomeMSG = HTMLWelcomeMsg.replace("%data%", bio.welcomeMessage);
+		$("#header").append(formattedContactsWelcomeMSG);
+
+		var formattedContactsMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
+		var formattedContactsEmail = HTMLemail.replace("%data%", bio.contacts.email);
+		var formattedContactsGithub = HTMLgithub.replace("%data%", bio.contacts.github);
+		var formattedContactsLocation = HTMLlocation.replace("%data%", bio.contacts.location);
+		$("#topContacts").append(formattedContactsMobile);
+		$("#topContacts").append(formattedContactsEmail);
+		$("#topContacts").append(formattedContactsGithub);
+		$("#topContacts").append(formattedContactsLocation);
+
+//Place skills from bio object in place of html placeholders
+		if (bio.skills.length > 0) {
+			$("#header").append(HTMLskillsStart);
+	
+			var formattedSkill = HTMLskills.replace("%data%", bio.skills[0]);
+			$("#skills").append(formattedSkill);
+			var formattedSkill = HTMLskills.replace("%data%", bio.skills[1]);
+			$("#skills").append(formattedSkill);
+			var formattedSkill = HTMLskills.replace("%data%", bio.skills[2]);
+			$("#skills").append(formattedSkill);
+			var formattedSkill = HTMLskills.replace("%data%", bio.skills[3]);
+			$("#skills").append(formattedSkill);
+		}
+	}
 }
 
 //create education object
@@ -163,45 +199,11 @@ var projects = {
 	}	
 }
 
-//Place bio data (except for skills) in place of html placeholders
-var formattedName = HTMLheaderName.replace("%data%", bio.name);
-var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
-$("#header").prepend(formattedRole);
-$("#header").prepend(formattedName);
-
-var formattedBioPic = HTMLbioPic.replace("%data%", bio.bioPic);
-$("#header").append(formattedBioPic);
-
-var formattedContactsWelcomeMSG = HTMLWelcomeMsg.replace("%data%", bio.welcomeMessage);
-$("#header").append(formattedContactsWelcomeMSG);
-
-var formattedContactsMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
-var formattedContactsEmail = HTMLemail.replace("%data%", bio.contacts.email);
-var formattedContactsGithub = HTMLgithub.replace("%data%", bio.contacts.github);
-var formattedContactsLocation = HTMLlocation.replace("%data%", bio.contacts.location);
-$("#topContacts").append(formattedContactsMobile);
-$("#topContacts").append(formattedContactsEmail);
-$("#topContacts").append(formattedContactsGithub);
-$("#topContacts").append(formattedContactsLocation);
-
-//Place skills from bio object in place of html placeholders
-if (bio.skills.length > 0) {
-	$("#header").append(HTMLskillsStart);
-	
-	var formattedSkill = HTMLskills.replace("%data%", bio.skills[0]);
-	$("#skills").append(formattedSkill);
-	var formattedSkill = HTMLskills.replace("%data%", bio.skills[1]);
-	$("#skills").append(formattedSkill);
-	var formattedSkill = HTMLskills.replace("%data%", bio.skills[2]);
-	$("#skills").append(formattedSkill);
-	var formattedSkill = HTMLskills.replace("%data%", bio.skills[3]);
-	$("#skills").append(formattedSkill);
-}
-
 //Display data
 projects.display();
 education.display();
 work.display();
+bio.display();
 
 //Add google map
 $("#mapDiv").append(googleMap);
