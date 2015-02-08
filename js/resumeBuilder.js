@@ -8,36 +8,9 @@ var bio = {
 		"github" : "sonofacobra",
 		"location" : "Fort Worth"
 	},
-	"bioPic" : "images/fry.jpg",
 	"welcomeMessage" : "Do or do not, there is no try.",
-	"skills" : ["HTML", "CSS", "JavaScript", "jQuery"]
-}
-
-//create work object
-var work = {
-	"jobs" : [
-	{
-	"title" : "Flow Builder",
-	"employer" : "AT&T",
-	"dates" : "July 2014 - Present",
-	"location" : "Fort Worth",
-	"description" : "Build flows in proprietary builder utilizing HTML/CSS/JS/jQuery used by call center agents to provide consistant and efficient trouble shooting of customer issues."
-	},
-	{
-	"title" : "NCCO Manager",
-	"employer" : "AT&T",
-	"dates" : "July 2009 - July 2014",
-	"location" : "Atlanta",
-	"description" : "Provide client side outage support for 80+ call centers (Internal and External) around the world."
-	},
-	{
-	"title" : "WFM Manager",
-	"employer" : "AT&T",
-	"dates" : "February 2007 - July 2009",
-	"location" : "Atlanta",
-	"description" : "Perform work force management (call routing, agent skills, etc) for 80+ call centers (Internal and External) around the world."
-	}
-	]
+	"skills" : ["HTML", "CSS", "JavaScript", "jQuery"],
+	"bioPic" : "images/fry.jpg"
 }
 
 //create education object
@@ -48,14 +21,16 @@ var education = {
 		"location" : "Phoenix",
 		"degree" : "BA",
 		"majors" : "Business Administration",
-		"dates" : "2002"
+		"dates" : "2002",
+		"url" : "https://www.udacity.com/course/ud304"
 	},
 	{
 		"name" : "Georgia Technical Institute of Technology",
 		"location" : "Atlanta",
 		"degree" : "N/A",
 		"majors" : "Aerospace Engineering",
-		"dates" : "N/A"
+		"dates" : "N/A",
+		"url" : "https://www.udacity.com/course/ud304"
 	}
 
 	],
@@ -63,14 +38,41 @@ var education = {
 	{
 		"title" : "Intro to HTML and CSS",
 		"school" : "Udacity",
-		"dates" : "2014",
+		"date" : "2014",
 		"url" : "https://www.udacity.com/course/ud304"
 	},
 	{
 		"title" : "How to Use Git and GitHub",
 		"school" : "Udacity",
-		"dates" : "2015",
+		"date" : "2015",
 		"url" : "https://www.udacity.com/course/ud775-nd"
+	}
+	]
+}
+
+//create work object
+var work = {
+	"jobs" : [
+	{
+	"employer" : "AT&T",
+	"title" : "Flow Builder",
+	"location" : "Fort Worth",
+	"dates" : "July 2014 - Present",
+	"description" : "Build flows in proprietary builder utilizing HTML/CSS/JS/jQuery used by call center agents to provide consistant and efficient trouble shooting of customer issues."
+	},
+	{
+	"employer" : "AT&T",
+	"title" : "NCCO Manager",
+	"location" : "Atlanta",
+	"dates" : "July 2009 - July 2014",
+	"description" : "Provide client side outage support for 80+ call centers (Internal and External) around the world."
+	},
+	{
+	"employer" : "AT&T",
+	"title" : "WFM Manager",
+	"location" : "Atlanta",
+	"dates" : "February 2007 - July 2009",
+	"description" : "Perform work force management (call routing, agent skills, etc) for 80+ call centers (Internal and External) around the world."
 	}
 	]
 }
@@ -190,7 +192,7 @@ education.display = function() {
 
 		var formattedonlineTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[onlineCourse].title);
 		var formattedonlineSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[onlineCourse].school);
-		var formattedonlineDates = HTMLonlineDates.replace("%data%", education.onlineCourses[onlineCourse].dates);
+		var formattedonlineDates = HTMLonlineDates.replace("%data%", education.onlineCourses[onlineCourse].date);
 		var formattedonlineURL = HTMLonlineURL.replace("%data%", education.onlineCourses[onlineCourse].url);
 		$(".education-entry:last").append(formattedonlineTitle);
 		$(".education-entry:last").append(formattedonlineSchool);
