@@ -194,11 +194,25 @@ var projects = {
 	}	
 }
 
-//Display data
+//Display all data
 projects.display();
 education.display();
 work.display();
 bio.display();
+
+//jQuery to toggle Work/Projects/Education/Map when clicked on
+//These sections are hidden by default due to changes I made to CSS
+//I also added a class to the Online Class title var within the helper.js file for ease of toggle
+$("#education").click(function(){
+	$(".education-entry").toggle();
+	$("#classH3").toggle();
+});
+$("#workExperience").click(function(){
+	$(".work-entry").toggle();
+});
+$("#projects").click(function(){
+	$(".project-entry").toggle();
+});
 
 //Add google map
 $("#mapDiv").append(googleMap);
@@ -211,15 +225,15 @@ $(document).click(function(loc) {
 	logClicks(x,y);
 });
 
-//do not remember
-function locationizer(work_obj) {
-	var locationArray = [];
-	for (job in work_obj.jobs) {
-		var newLocation = work_obj.jobs[job].location;
-		locationArray.push(newLocation);
-	}
-	return locationArray;
-}
+//return statement quiz
+//function locationizer(work_obj) {
+//var locationArray = [];
+//for (job in work_obj.jobs) {
+//var newLocation = work_obj.jobs[job].location;
+//locationArray.push(newLocation);
+//}
+//return locationArray;
+//}
 
 // International name button
 // function inName(name) {

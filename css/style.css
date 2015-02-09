@@ -11,6 +11,7 @@
 .education-entry, .work-entry, .project-entry {
   padding-left: 5%;
   padding-right: 5%;
+  display: none;
 }
 
 h1 {
@@ -164,6 +165,7 @@ img {
 
 span {
   padding: 5px;
+  color: #FFFFFF;
 }
 
 #letsConnect {
@@ -212,4 +214,8 @@ span {
   .biopic {
     display: block;
   }
+}
+
+#classH3 {
+  display: none;
 }
