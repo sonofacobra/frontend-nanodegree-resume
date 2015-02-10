@@ -1,0 +1,3 @@
+Udacity courses
+Piazza posts (random questions other students asked as they were working through the project)
+Google's developer site on APIs in relation to the map
