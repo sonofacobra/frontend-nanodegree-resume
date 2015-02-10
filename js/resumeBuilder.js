@@ -170,7 +170,7 @@ var projects = {
 			"title" : "Interactive Resume",
 			"dates" : "February 2015",
 			"description" : "Utilizing JavaScript (JSON Objects, Functions, Arrays, and Loops) along with jQuery to create our resume on a prebuilt template.",
-			"images" : ["images/P1.png"]
+			"images" : ["images/P2.png"]
 		}
 		],
 //Place data from projects object in place of html placeholders
